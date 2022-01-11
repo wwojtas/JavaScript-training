@@ -1,0 +1,47 @@
+input {
+  display: block;
+  width: 18rem;
+  margin: 0.5rem;
+  border: 1px solid silver;
+  text-align: right;
+}
+
+.numbers button,
+.operators button {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  margin: .1rem;
+  border: 2px solid silver;
+  outline-width: 0;
+}
+
+button.big-button {
+  height: 6.2rem;
+
+}
+
+button.clear {
+  background-color: lightsalmon;
+}
+
+button.result {
+  background-color: lightskyblue;
+}
+
+button:hover {
+  font-weight: bold;
+  border-color: gray;
+}
+
+button:active {
+  font-weight: bold;
+  background-color: silver;
+}
+
+.left-panel,
+.right-panel {
+  display: inline-block;
+  vertical-align: top;
+  margin: .5rem
+}

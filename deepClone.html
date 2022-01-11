@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    let source = {
+      str: "text",
+      num: 10,
+      flag: true,
+      arr: [1, 2, 3],
+      date: new Date(2030, 10, 20),
+      obj: {
+        a: 9,
+        b: "txt",
+        c: {
+          d: 10,
+          e: "text"
+        },
+        f: 35
+      }
+    };
+    var result = deepCopy(source);
+
+    function deepCopy(obj) {
+      var copy;
+      // zwrócenie prymitywów
+      if (obj === null || typeof obj !== "object") return obj;
+
+      if (obj instanceof Date) {
+        copy = new Date();
+        copy.setTime(obj.getTime());
+        return copy;
+      }
+
+      if (obj instanceof Array) {
+        copy = [];
+        for (let i = 0; i < obj.length; i++) {
+          copy[i] = deepCopy(obj[i]);
+        }
+        return copy;
+      }
+
+      if (obj instanceof Object) {
+        copy = {};
+        for (key in obj) {
+          console.log(key + " " + obj[key]);
+          copy[key] = deepCopy(obj[key]);
+        }
+        return copy;
+      }
+
+    }
+    console.log(result);
+  </script>
+
+
+</head>
+
+<body>
+  <div>
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Simple calculator </title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- used code from https://mathjs.org/download.html -->
+  <!-- An extensive math library for JavaScript and Node.js -->
+  <script src="https://pagecdn.io/lib/mathjs/9.4.4/math.min.js" crossorigin="anonymous"></script>
+  <script src="calc.js"></script>
+
+</head>
+
+<body>
+
+
+  <div class="calculator">
+
+    <input type="text" id="input">
+
+    <div class="left-panel">
+
+      <div class="numbers">
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+      </div>
+      <div class="numbers">
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+      </div>
+      <div class="numbers">
+        <button>3</button>
+        <button>2</button>
+        <button>1</button>
+      </div>
+      <div class="numbers">
+        <button>0</button>
+        <button>00</button>
+        <button>.</button>
+      </div>
+
+    </div>
+
+    <div class="right-panel">
+
+      <div class="operators">
+        <button>/</button>
+        <button class="clear">c</button>
+      </div>
+      <div class="operators">
+        <button>*</button>
+        <button>-</button>
+      </div>
+      <div class="operators">
+        <button class="big-button">+</button>
+        <button class="big-button result">=</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
