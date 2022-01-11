@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time counter</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="final-date">
+    Ostateczna data:
+    <input type="datetime-local" id="final-date-input">
+    <button id="countdown-button">Odliczaj</button>
+  </div>
+
+  <div id="message">
+    <h2>Czas minął!</h2>
+  </div>
+
+  <div class="clock-container">
+
+    <div class="cell">
+      <h3>Dni</h3>
+      <h1 id="days">-</h1>
+    </div>
+
+    <div class="cell">
+      <h3>Godziny</h3>
+      <h1 id="hours">-</h1>
+    </div>
+
+    <div class="cell">
+      <h3>Minuty</h3>
+      <h1 id="minutes">-</h1>
+    </div>
+
+    <div class="cell">
+      <h3>Sekundy</h3>
+      <h1 id="seconds">-</h1>
+    </div>
+
+  </div>
+
+
+
+
+  <script src="code.js"></script>
+</body>
+
+</html>

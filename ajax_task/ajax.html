@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 
     <script>
         let xhrObject = new XMLHttpRequest();
-        xhrObject.onreadystatechange = function() {
-            if(xhrObject.readyState === 4) {
-                if(xhrObject.status === 200 
-                || xhrObject.status === 304) {
+        xhrObject.onreadystatechange = function () {
+            if (xhrObject.readyState === 4) {
+                if (xhrObject.status === 200 ||
+                    xhrObject.status === 304) {
                     console.log(xhrObject.responseText);
                     // console.log(xhrObject.responseXML);
                     parseXML(xhrObject.responseText);
@@ -27,7 +29,7 @@
         function parseXML(xmlStr) {
             let domParser = new DOMParser();
             let xmlObj = domParser.parseFromString(xmlStr, "application/xml");
-            if(xmlObj.documentElement.nodeName === "parsererror") {
+            if (xmlObj.documentElement.nodeName === "parsererror") {
                 console.log("Blad pliku XML");
             } else {
                 // console.log(xmlObj);
@@ -43,7 +45,7 @@
             console.log(book1.textContent); // Ksiazka #1
             //lub
             console.log(book1.getElementsByTagName("title")[0].innerHTML); // Ksiazka #1
-            console.log(book1.getElementsByTagName("title")[0].childNodes[0].nodeValue);  // Ksiazka #1
+            console.log(book1.getElementsByTagName("title")[0].childNodes[0].nodeValue); // Ksiazka #1
 
             book1.setAttribute("id", "book1");
             console.log(book1.getAttribute("id"));
@@ -51,11 +53,33 @@
             let serializer = new XMLSerializer();
             let xmlStr = serializer.serializeToString(xmlObj);
             console.log(xmlStr);
-            
         }
 
+        function getJSONFile(path, callback) {
+            let xhrObject = new XMLHttpRequest();
+            xhrObject.onreadystatechange = function () {
+                if (xhrObject.readyState === 4) {
+                    if (xhrObject.status === 200 || xhrObject.status === 304) {
+                        if (callback) callback(xhrObject.responseText);
+                    }
+                }
+            }
+            xhrObject.open("GET", path);
+            xhrObject.send();
+        }
+
+        getJSONFile("books.json", function (data) {
+            console.log(data); // plik w formacie JSON
+            let json = JSON.parse(data); // parsowanie pliku json
+            console.log(json); // obiekt sparsowany JSON, można uzywac jak zwykły obiekt JavaScript
+            // lub
+            console.log(json.books[0].title); // ksiazka 1
+            console.log(json.books[0].year); // 1191
+            console.log(json.books[0].firstEdition); // true
+        })
     </script>
 
 
 </body>
+
 </html>
