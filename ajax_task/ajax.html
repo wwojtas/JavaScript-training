@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let xhrObject = new XMLHttpRequest();
+        xhrObject.onreadystatechange = function() {
+            if(xhrObject.readyState === 4) {
+                if(xhrObject.status === 200 
+                || xhrObject.status === 304) {
+                    console.log(xhrObject.responseText);
+                    // console.log(xhrObject.responseXML);
+                    parseXML(xhrObject.responseText);
+                }
+            }
+        }
+        // true - async
+        xhrObject.open("GET", "test.xml", true);
+        xhrObject.send();
+
+        function parseXML(xmlStr) {
+            let domParser = new DOMParser();
+            let xmlObj = domParser.parseFromString(xmlStr, "application/xml");
+            if(xmlObj.documentElement.nodeName === "parsererror") {
+                console.log("Blad pliku XML");
+            } else {
+                // console.log(xmlObj);
+                // console.dir(xmlObj);
+                showData(xmlObj);
+            }
+        }
+
+        function showData(xmlObj) {
+            let booksCollection = xmlObj.getElementsByTagName("book");
+            console.log("book");
+            let book1 = booksCollection[0];
+            console.log(book1.textContent); // Ksiazka #1
+            //lub
+            console.log(book1.getElementsByTagName("title")[0].innerHTML); // Ksiazka #1
+            console.log(book1.getElementsByTagName("title")[0].childNodes[0].nodeValue);  // Ksiazka #1
+
+            book1.setAttribute("id", "book1");
+            console.log(book1.getAttribute("id"));
+
+            let serializer = new XMLSerializer();
+            let xmlStr = serializer.serializeToString(xmlObj);
+            console.log(xmlStr);
+            
+        }
+
+    </script>
+
+
+</body>
+</html>
