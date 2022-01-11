@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea {
+            width: 90%;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <textarea name="" id="" ></textarea>
+    <div>
+        <div>Ilość znaków: <span id="num-characters"></span></div>
+        <div>Ilość słów: <span id="num-words"></span></div>
+        <div>Ilość zdań: <span id="num-sentences"></span></div>
+    </div>
+
+    
+
+    <script>
+       let textArea = document.getElementsByTagName("textarea")[0];
+       
+       textArea.addEventListener("input", onChange);
+
+       function onChange(e){ 
+           
+           const data = textArea.value;
+           const numCharacters = data.length;
+           const numWords = data.replace(/[\r\n]/g, " ").split(" ").length;
+           const numSentences = data.split(".").length;
+           
+           document.getElementById("num-characters").textContent = numCharacters;
+           document.getElementById("num-words").innerHTML = numWords;
+           document.getElementById("num-sentences").innerHTML = numSentences;
+       }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="body">
+
+    <p id="p">
+        <form id="form" action="">
+            <input  id="input" onclick="inputClicked(event)" type="text">
+        </form>
+    </p>
+    
+    <script>
+
+        window.addEventListener("load", function() {
+
+            let input = document.getElementById("input");
+            input.onclick = function inputClicked(event) {
+            console.log("klik");
+            } 
+
+            let body = document.getElementById("body");
+            // function oneKeyDown(event) {
+            //     console.log(event);
+            //     console.log("klawisz klik: " + event.key);
+            // }
+            // body.addEventListener("keydown", oneKeyDown);
+
+            // function mousemove(event) {
+            //     console.log(event);
+            //     console.log("klawisz klik: " + event.key);
+            // }
+            // body.addEventListener("mousemove", mousemove);
+
+            function click(event) {
+                console.log(event);
+                console.log("klawisz klik: " + event.target);
+            }
+            body.addEventListener("click", click);
+
+        })
+
+    
+       
+
+    </script>
+
+
+</body>
+</html>
