@@ -1,0 +1,23 @@
+main {
+  text-align: center;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 5px;
+  width: 380px;
+  margin: 30px auto;
+}
+
+
+.cell {
+  cursor: pointer;
+  font-size: 5rem;
+  text-align: center;
+  border: 1px solid black;
+  width: 120px;
+  height: 120px;
+
+}
