@@ -4,6 +4,7 @@ window.onload = function () {
 };
 
 let calculator = {
+
   buttons: undefined,
   input: undefined,
 
