@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake</title>
+  <style>
+    body {
+      background-color: rgb(58, 58, 61);
+    }
+
+    canvas {
+      display: block;
+      border: 3px solid white;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="canvas" width="400" height="400"></canvas>
+  <script>
+    (function () {
+      let canvas;
+      let context2d;
+      let wallSize = 10;
+      let snake = [];
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+      function drawRectRandomColor(x, y, width, height) {
+        context2d.fillStyle = ` rgb(${getRandomInt(255)}, ${getRandomInt(255)}, ${getRandomInt(255)}) `;
+        context2d.fillRect(x, y, width, height);
+      }
+
+      function clearCanvas() {
+        context2d.fillStyle = "black";
+        context2d.fillRect(0, 0, canvas.width, canvas.height) = "black";
+
+      }
+
+      function makeSnake(snakeLength) {
+        for (let i = 0; i < snakeLength; i++) {
+          let x = canvas / 2 + i * wallSize;
+          let y = canvas.height / 2
+          snake.push({
+            x: x,
+            y: y
+          });
+        }
+      }
+
+      function resetGame() {
+        snake = [];
+        makeSnake(5);
+      }
+
+      function startApp() {
+        canvas = document.getElementById("canvas");
+        context2d = canvas.getContext("2d");
+
+        drawRectRandomColor(10, 10, 10, 10);
+
+        resetGame();
+
+        setInterval(function () {
+          clearCanvas();
+
+        }, 100);
+      }
+
+      window.onload = startApp;
+
+    })();
+  </script>
+</body>
+
+</html>

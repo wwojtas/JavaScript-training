@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Random user</title>
 </head>
 <style>
   body {
@@ -70,7 +70,6 @@
         <div id="full-name">fullname</div>
         <div id="username">username</div>
         <div id="user-details">
-
           <div id="email">email</div>
           <div id="country">country</div>
         </div>
@@ -91,11 +90,13 @@
     }
     // kiedy dane response będą sparsowane to wywołamy poniższą funkcje i dane z response przekażemy do argumentu data w funkcji
     function dataReady(data) {
+
       console.log(data);
       var result = data.results[0];
       var fullname = result.name.title + " " + result.name.first + " " +
         result.name.last;
       document.getElementById('full-name').innerHTML = fullname;
+      
       var img = result.picture.large;
       document.getElementById('avatar-img').src = img;
 
@@ -107,6 +108,7 @@
 
       var country = result.location.timezone.description;
       document.getElementById('country').innerHTML = country;
+
     }
   </script>
 
