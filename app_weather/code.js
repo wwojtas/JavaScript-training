@@ -7,7 +7,7 @@ function returnApiKey() {
 }
 
 function startApp() {
-  //reference to navigator Object
+  //reference to navigator Object 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
