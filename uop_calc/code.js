@@ -192,9 +192,10 @@ class Ui {
     this.setValueById("finalWorkerNetMoney", monthlyIncome.finalWorkerNetMoney.toFixed(2));
 
 
-    // 
+    //    
     // Składki pracodawcy
     // 
+
     // Składka na ubezpieczenie emerytalne 9,76%
     this.setValueById("employerRetirementContribution", monthlyEmploerCost.employerRetirementContribution.toFixed(2));;
 
