@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
     rates.init();
 
 }
@@ -14,13 +14,13 @@ class ExchangeRates {
     }
 
     loadData() {
-       fetch(this.url)
+        fetch(this.url)
             .then((response) => {
-           response.json()
-           .then((data) => {
-               this.parseData(data);
-           })
-       })
+                response.json()
+                    .then((data) => {
+                        this.parseData(data);
+                    })
+            })
     }
     parseData(data) {
         data = data[0];
@@ -32,12 +32,12 @@ class ExchangeRates {
 
         document.querySelector("h3").innerHTML = "Kursy walut z tabeli NBP: " + this.no;
 
-        for(let v in data.rates) {
+        for (let v in data.rates) {
             this.addRateToTable(data.rates[v]);
         }
     }
 
-    addRateToTable(el){
+    addRateToTable(el) {
         let tr = document.createElement("tr");
         tr.innerHTML = `
             <td class="align-middle">${el.code}</td> 
