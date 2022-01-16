@@ -4,7 +4,7 @@ let timerId = null;
 document.getElementById("countdown-button").addEventListener("click", function () {
   initTimer();
 })
-
+   
 function initTimer() {
 
   clearInterval(timerId);
